@@ -224,72 +224,72 @@ Client
 This separation allows individual components to be developed and tested independently.
 
 <h3>📁 Project Structure</h3>
-cpp-https-server/
-│
-├── CMakeLists.txt
-├── README.md
-├── LICENSE
-├── .gitignore
-│
-├── cmake/
-│   └── FindOpenSSL.cmake
-│
-├── config/
-│   ├── server.conf
-│   └── tls.conf
-│
-├── certs/
-│   ├── .gitkeep
-│   └── README.md
-│
-├── include/
-│   ├── server/
-│   ├── net/
-│   ├── tls/
-│   ├── http/
-│   ├── thread/
-│   └── utils/
-│
-├── src/
-│   ├── main.cpp
-│   ├── server/
-│   ├── net/
-│   ├── tls/
-│   ├── http/
-│   ├── thread/
-│   └── utils/
-│
-├── tests/
-├── examples/
-├── benchmarks/
-├── scripts/
-└── docs/
 
-Module Responsibilities
-Module	Responsibility
-net/	TCP sockets and network connections
-tls/	OpenSSL context, TLS handshake, encrypted I/O
-http/	HTTP/1.1 parsing and response serialization
-server/	Server lifecycle and connection orchestration
-thread/	Thread pool and worker management
-utils/	Configuration, logging, and shared utilities
-tests/	Unit and integration tests
-benchmarks/	Performance benchmarks
-scripts/	Development utilities
-🛠️ Requirements
-Supported Environment
+*Click to expand*
+ 
+<details open>
+<summary><b>Core Application</b></summary>
+
+- **`include/`** — Header interfaces
+  - `server/` — Lifecycle management, request dispatching
+  - `net/` — Socket abstraction, epoll / kqueue event loops
+  - `tls/` — OpenSSL context and session handling
+  - `http/` — Parser, routing, request/response models
+  - `thread/` — Worker pools, task queues
+  - `utils/` — Logging, memory buffers, formatting
+- **`src/`** — Implementation files (mirrors `include/`)
+- **`src/main.cpp`** — Application entrypoint
+</details>
+
+<details>
+<summary><b>Configuration & Security</b></summary>
+
+- **`config/`** — `server.conf`, `tls.conf`
+- **`certs/`** — Self-signed certificates and generation scripts
+</details>
+
+<details>
+<summary><b>Verification & Tooling</b></summary>
+
+- **`tests/`** — Unit and integration test suites
+- **`benchmarks/`** — Latency and load tests (e.g., wrk, autobahn)
+- **`examples/`** — Quickstart code samples
+- **`scripts/`** — CI/CD, sanitizers, formatting hooks
+- **`cmake/`** — CMake find-modules
+</details>
+
+
+<h3>Module Responsibilities</h3>
+
+|Module|Responsibility|
+|---|---|
+| net/ | TCP sockets and network connections |
+| tls/ | OpenSSL context, TLS handshake, encrypted I/O |
+| http/ | HTTP/1.1 parsing and response serialization |
+| server/ | Server lifecycle and connection orchestration |
+| thread/ | Thread pool and worker management |
+| utils/ | Configuration, logging, and shared utilities |
+| tests/ | Unit and integration tests |
+| benchmarks/ | Performance benchmarks |
+| scripts/ | Development utilities |
+
+<h3>🛠️ Requirements</h3>
+
+### Supported Environment
 
 The primary development environment is Linux.
 
-Dependency	Version
-C++	C++20
-GCC	11+
-Clang	14+
-CMake	3.20+
-OpenSSL	3.x
-Threads	POSIX/pthreads
-Git	Latest recommended
-Install Dependencies
+|Dependency|Version|
+|---|---|
+|C++|C++20|
+|GCC|11+|
+|Clang|14+|
+|CMake|3.20+|
+|OpenSSL|3.x|
+|Threads|POSIX/pthreads|
+|Git|Latest recommended|
+
+### Install Dependencies
 
 On Debian/Ubuntu:
 
@@ -302,20 +302,25 @@ sudo apt install \
     libssl-dev
 
 
-Verify:
+### Verify:
 
-g++ --version
-cmake --version
-openssl version
+g++ --version<br>
+cmake --version<br>
+openssl version<br>
 
 <h3>🚀 Quick Start</h3>
-1. Clone
-git clone <repository-url>
-cd cpp-https-server
 
-2. Generate Development Certificates
-./scripts/generate_certs.sh
+### 1. Clone
 
+```text
+git clone <repository-url>  
+cd cpp-https-server 
+```
+
+### 2. Generate Development Certificates
+```text
+./scripts/generate_certs.sh  
+```
 
 This should create:
 
@@ -324,7 +329,7 @@ certs/
 └── server.key
 
 
-<h2>⚠️ Development certificates are for local testing only.</h2>
+<h3>⚠️ Development certificates are for local testing only.</h3>
 
 <h3>3. Configure</h3>
 
