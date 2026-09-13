@@ -81,7 +81,7 @@ The goal is to understand the engineering behind a network server:
 - How resources are safely managed in C++
 - How networking code can be tested and benchmarked
 
-> 🚧 **Status:** Work in progress
+ > # 🚧 **Status:** Work in progress
 
 ## ✨ Features
 
