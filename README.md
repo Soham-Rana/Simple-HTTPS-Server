@@ -324,10 +324,12 @@ cd cpp-https-server
 
 This should create:
 
-certs/
-├── server.crt
-└── server.key
+<details open>
+<summary><b>certs</b></summary>
 
+- **`server.crt`**  
+- **`server.key`**  
+</details>
 
 <h3>⚠️ Development certificates are for local testing only.</h3>
 
@@ -359,26 +361,27 @@ The server expects a certificate and private key.
 
 Default configuration:
 
-certs/server.crt
+```text
+certs/server.crt<br>
 certs/server.key
-
+```
 
 For local development, certificates can be generated with:
-
+```text
 ./scripts/generate_certs.sh
-
-Production Warning
+```
+### Production Warning
 
 Do not use development/self-signed certificates for production.
 
-Production deployments should use:
+### Production deployments should use:
 
-A certificate issued by a trusted Certificate Authority
-Proper private-key protection
-Secure TLS configuration
-Current OpenSSL releases
+A certificate issued by a trusted Certificate Authority <br>
+Proper private-key protection <br>
+Secure TLS configuration <br >
+Current OpenSSL releases <br><br>
 
-Never commit private keys to Git.
+### Never commit private keys to Git.
 
 <h3>🌍 Running the Server</h3>
 
@@ -412,7 +415,7 @@ Health check:
 GET /health
 
 
-Stop the server with:
+## Stop the server with:
 ```text
 Ctrl+C
 ```
